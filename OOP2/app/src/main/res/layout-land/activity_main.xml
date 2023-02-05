@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Выберите ваш пол:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"/>
+
+        <RadioGroup
+            android:id="@+id/radiopol"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioM"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Мужской"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/radioF"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:text="Женский"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Возраст (лет):"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"/>
+                <TextView
+                    android:id="@+id/textheight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Рост (см):"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"/>
+                <TextView
+                    android:id="@+id/textweight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Вес (кг):"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <EditText
+                    android:id="@+id/birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="20sp"
+                    android:layout_marginHorizontal="10dp" />
+
+                <EditText
+                    android:id="@+id/editheight"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/editweightr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:layout_marginHorizontal="10dp"
+                    android:inputType="number" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textsports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Оцените активность вашего образа жизни :"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:max="4"
+            android:minHeight="70dp"
+            android:progress="1" />
+
+        <TextView
+            android:id="@+id/texthint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Умеренная активность (легкие физические нагрузки либо занятия 1-3 раз в неделю) "
+            android:textColor="@color/design_default_color_secondary"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginVertical="10sp"
+            android:text="Получить больше информации" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:text="Далее"
+            android:onClick="count" />
+        <TextView
+            android:id="@+id/textres"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Оцените активность вашего образа жизни :"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"/>
+
+    </LinearLayout>
+</ScrollView>

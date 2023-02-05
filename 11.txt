@@ -1,0 +1,125 @@
+interface Movable{
+    var speed: Int  // объявление свойства
+    fun move()      // определение функции без реализации
+    fun stop(){     // определение функции с реализацией по умолчанию
+        println("Остановка")
+    }
+   
+}
+class Car : Movable{
+ 
+    override var speed = 60
+    override fun move(){
+        println("Машина едет со скоростью $speed км/ч")
+    }
+}
+class Aircraft : Movable{
+     
+    override var speed = 600
+    override fun move(){
+        println("Самолет летит со скоростью $speed км/ч")
+    }
+    override fun stop(){
+        println("Приземление")
+    }
+}
+fun main() {
+ 
+    val m1: Movable = Car()
+    val m2: Movable = Aircraft()
+    // val m3: Movable = Movable() напрямую объект интерфейса создать нельзя
+ 
+    m1.move()
+    m1.stop()
+    m2.move()
+    m2.stop()
+}
+-------------------------------------------------конструктор
+
+fun main() {
+ 
+    val tom: Person = Person("Tom")
+    val bob: Person = Person("Bob", 45)
+     
+    println("Name: ${tom.name}  Age: ${tom.age}")
+    println("Name: ${bob.name}  Age: ${bob.age}")
+}
+ 
+class Person(_name: String){
+    val name: String = _name
+    var age: Int = 0
+     
+    constructor(_name: String, _age: Int) : this(_name){
+        age = _age
+    }
+}
+--------------------------------------------------------сеттер
+fun main() {
+ 
+    val bob: Person = Person("Bob")
+    bob.age = 25        // вызываем сеттер
+ 
+    println(bob.age)   // 25
+    bob.age = -8        // вызываем сеттер
+    println(bob.age)   // 25
+}
+class Person(val name: String){
+ 
+    var age: Int = 1
+        set(value){
+            if((value>0) and (value <110))
+                field = value
+        }
+}
+------------------------------------------------геттер
+fun main() {
+    val tom = Person("Tom", "Smith")
+    println(tom.fullname)   // Tom Smith
+    tom.lastname = "Simpson"
+    println(tom.fullname)   // Tom Simpson
+}
+class Person(var firstname: String, var lastname: String){
+ 
+    val fullname: String
+        get() = "$firstname $lastname"
+}
+---------------------------------------------// функций расширения к стандартным типам Int и String:
+fun main() {
+ 
+    val hello: String = "hello world"
+    println(hello.wordCount('l'))   // 3
+    println(hello.wordCount('o'))   // 2
+    println(4.square())                 // 16
+    println(6.square())                 // 36
+}
+ 
+fun String.wordCount(c: Char) : Int{
+    var count = 0
+    for(n in this){
+        if(n == c) count++
+    }
+    return count
+}
+fun Int.square(): Int{
+    return this * this
+}
+
+-------------------------вложенный класс
+fun main() {
+ 
+    val acc = BankAccount(3400);
+    acc.Transaction().pay(2500)
+}
+class BankAccount(private var sum: Int){
+ 
+    fun display(){
+        println("sum = $sum")
+    }
+ 
+    inner class Transaction{
+        fun pay(s: Int){
+            sum -= s
+            display()
+        }
+    }
+}

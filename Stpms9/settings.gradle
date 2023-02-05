@@ -1,0 +1,2 @@
+rootProject.name = "Stpms9"
+include ':app'

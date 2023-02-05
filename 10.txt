@@ -1,0 +1,130 @@
+fun main(){
+    println("Hello Kotlin")
+    ex2()
+}
+
+fun ex2(){
+     val name:String ="aaaaa";
+     val cost:Double = 15.7;
+    val age:Int = 23;
+     println(age)
+    println(name)
+    println(cost)
+    val name1 = 'a';
+    val cost1 = 44;
+    println(name1)
+    println(cost1)
+    //преобразование типов
+    val s: String = "12"
+	val d: Int = s.toInt()
+	println(d)
+    //cтроковый литерал
+    val  lit= "Hello, world!\n"
+    print(lit)
+    //const
+     val age2:Int = 23;
+     println(age2)
+     //Int?
+    val boxedA: Int? = 5
+	val anotherBoxedA: Int? = 5
+	print(boxedA == anotherBoxedA) // Prints 'true'
+    //ввод с консоли
+    println("Введите имя: ")
+    val Name = readLine()
+ 
+    println("Ваше имя: $Name")
+ }
+fun ex3(){
+    var login = "pavel"
+    var password = "12345678"
+    if (login.toString().length >3 && password.toString().length >6)
+    {println("Login and password correct")}
+    else {println("error")}
+
+}
+ex3()
+---------------------------------перечисления
+enum class Day(val value: Int){
+    MONDAY(1), TUESDAY(2), WEDNESDAY(3),
+    THURSDAY(4), FRIDAY(5), SATURDAY(6),
+    SUNDAY(7)
+}
+fun main(){
+    val day1: Day = Day.FRIDAY
+    println(day1.name)        // FRIDAY
+    println(day1.ordinal)     // 4
+}
+---------------------------------хранение состояния
+fun main() {
+ 
+    println(operate(5, 6, Operation.ADD))         // 11
+    println(operate(5, 6, Operation.SUBTRACT))   // -1
+    println(operate(5, 6, Operation.MULTIPLY))   // 30
+}
+enum class Operation{
+ 
+    ADD, SUBTRACT, MULTIPLY
+}
+fun operate(n1: Int, n2: Int, op: Operation): Int{
+ 
+    when(op){
+        Operation.ADD -> return n1 + n2
+        Operation.SUBTRACT -> return n1 - n2
+        Operation.MULTIPLY -> return n1 *n2
+    }
+}
+-----------------------------------Найти наибольшее и наименьшее число в массиве
+fun main(){
+    val numbers: IntArray = intArrayOf(4, 9, 3, 2, 6)
+var largestElement = numbers[0]
+
+for (number in numbers){
+    if(largestElement < number)
+        largestElement = number
+}
+
+println("Наибольшее число в массиве: $largestElement")
+}
+------------------------------функции расширения
+fun main() {
+ 
+    val hello: String = "hello world"
+    println(hello.wordCount('l'))   // 3
+    println(hello.wordCount('o'))   // 2
+    println(4.square())                 // 16
+    println(6.square())                 // 36
+}
+ 
+fun String.wordCount(c: Char) : Int{
+    var count = 0
+    for(n in this){
+        if(n == c) count++
+    }
+    return count
+}
+fun Int.square(): Int{
+    return this * this
+}
+
+----------------------------циклы
+fun main() {
+val range = 1..5
+for(i in range){
+    println("Элемент $i")
+}
+}
+----------------------------лямбда
+fun main() {
+    val sum: (Int, Int) -> Int = {x, y -> x + y } 
+    doOperation(3, 4, {a, b -> a * b})
+}
+fun doOperation(x: Int, y: Int, op: (Int, Int) ->Int){
+ 
+    val result = op(x, y)
+    println(result)
+}
+---------------------------ListOF
+fun main(){
+val cats = listOf("Мурзик", "Барсик", "Рыжик")
+println(cats.get(2))
+}

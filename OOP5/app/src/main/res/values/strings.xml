@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">OOP5</string>
+    <string-array name="bstu">
+        <item>Корпус 1</item>
+        <item>Корпус 2</item>
+        <item>Корпус 3</item>
+        <item>Корпус 3а</item>
+        <item>Корпус 4</item>
+        <item>Общежитие 5</item>
+    </string-array>
+</resources>
